@@ -20,4 +20,25 @@ namespace WinFormsApp3
         public string Name { get; set; }
         public string Address { get; set; }
     }
+
+    //create table Work (StudentId int    ,[WorkName] nvarchar(100))
+    internal class Work 
+    {
+        public int StudentId { get; set; }
+        public string WorkName { get; set; }
+    }
+
+    internal class WorkJoined :Work
+    {
+       
+         
+    }
+
+    internal class WorkJoined2 : WorkJoined
+    {
+
+
+    }
+
+
 }

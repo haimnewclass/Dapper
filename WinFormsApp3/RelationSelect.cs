@@ -15,10 +15,31 @@ namespace WinFormsApp3
 {
     internal class RelationSelect:DbCon
     {
-       public void Insert(Student1 student)
+       public void InsertData()
         {
+            Student1 student1 = new Student1() { Id = 3,Name="Ben Tov",Address="Kochav" };
+
             string sql = "insert into [Student1] (Id,Name,Address) values(@Id,@Name,@Address)";
-            db.Query(sql, student);
+            db.Query(sql, student1);
+            student1 = new Student1() { Id = 4, Name = "Levi", Address = "Kochav" };
+            db.Query(sql, student1);
+
+            db.Query("delete from Work ");
+
+            sql = "insert into Work(StudentId,WorkName) values(@StudentId,@WorkName)";
+            Work work = new Work() { StudentId = 3, WorkName = "Electronic" };
+            db.Query(sql, work); ;
+
+            work = new Work() { StudentId = 4, WorkName = "Liturture" };
+            db.Query(sql, work); ;
+
+        }
+
+        public void Join()
+        { 
+            string sql = "select * from Student1 inner join Work on Work.StudentId = Student1.Id";
+           
+            var lst = db.Query<WorkJoined>(sql).ToList() ;
 
         }
 

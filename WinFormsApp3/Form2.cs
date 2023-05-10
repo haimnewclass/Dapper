@@ -33,5 +33,12 @@ namespace WinFormsApp3
             sampleCRUD.Delete(student1);
             
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RelationSelect relationSelect = new RelationSelect();
+            relationSelect.InsertData();
+            relationSelect.Join();
+        }
     }
 }
