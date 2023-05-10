@@ -2,7 +2,6 @@ using System.Data;
 using System.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using YamlDotNet.Serialization;
-using System.Data.SqlClient;
 using Dapper;
 using Dapper.Contrib.Extensions;
 using Dapper.Contrib;
@@ -37,6 +36,7 @@ namespace WinFormsApp3
         public ItblImp(string connString)
         {
             this.db = new SqlConnection(connString);
+
         }
 
         //  SET IDENTITY_INSERT [Shippers] ON
@@ -124,7 +124,14 @@ namespace WinFormsApp3
             var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             config = builder.Build();
 
-            ItblImp itblImp = new ItblImp(config.GetConnectionString("DefaultConnection"));
+            string conString = config.GetConnectionString("DefaultConnection");
+
+             IDbConnection db = new SqlConnection(conString);
+            db.Query
+
+
+
+            ItblImp itblImp = new ItblImp(conString);
             var lst = itblImp.GetAll();
             tbl1 tbl1 = new tbl1() { CompanyName = "ccccc", Phone = "2345345345" };
             itblImp.Add(tbl1);
