@@ -91,7 +91,7 @@ namespace WinFormsApp3
     {   
         public int CustomerID { get; set; }
 
-        CompanyName
+      
 
     }
 
@@ -119,7 +119,7 @@ namespace WinFormsApp3
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        {/*
             
             var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             config = builder.Build();
@@ -135,7 +135,7 @@ namespace WinFormsApp3
             var lst = itblImp.GetAll();
             tbl1 tbl1 = new tbl1() { CompanyName = "ccccc", Phone = "2345345345" };
             itblImp.Add(tbl1);
-
+            */
         }
     }
 }

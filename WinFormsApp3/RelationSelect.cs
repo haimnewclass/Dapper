@@ -13,7 +13,7 @@ using Dapper.Contrib;
 using System.Transactions;
 namespace WinFormsApp3
 {
-    internal class SampleCRUD:DbCon
+    internal class RelationSelect:DbCon
     {
        public void Insert(Student1 student)
         {
@@ -37,16 +37,6 @@ namespace WinFormsApp3
             student = db.Query<Student1>(sql,new { id }).First();
 
             return student;
-
-        }
-
-        public List<Student1> SelectAll( )
-        {
-            List<Student1> students;
-            string sql = "select * from Student1";
-            students = db.Query<Student1>(sql).ToList();
-
-            return students;
 
         }
         public void Update(Student1 student)
